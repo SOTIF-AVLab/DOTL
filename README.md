@@ -22,9 +22,9 @@ We provide the monitoring program code of highway and intersection related rules
 A demo video of the dataset can be viewed [here](https://youtu.be/H9QSGqioYww).
 
 ### Step 1.Download source code
-For monitoring program and visualization of highway see [Highway_Vis_tool](https://github.com/SOTIF-AVLab/test01/tree/main/Highway_Vis_tool)
+For monitoring program and visualization of highway see [Highway_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Highway_Vis_tool)
 
-For monitoring program and visualization of intersection see [Intersection_Vis_tool](https://github.com/SOTIF-AVLab/test01/tree/main/Intersection_Vis_tool)
+For monitoring program and visualization of intersection see [Intersection_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Intersection_Vis_tool)
 
 ### Step 2.Set monitoring object
 #### 2.1 Highway_Vis_tool
