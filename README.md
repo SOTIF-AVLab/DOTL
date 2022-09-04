@@ -22,3 +22,12 @@ We provide the monitoring program code of highway and intersection related rules
 A demo video of the dataset can be viewed [here](https://youtu.be/H9QSGqioYww).
 
 ### Step 1.Download source code
+For monitoring program and visualization of highway see [Highway_Vis_tool](https://github.com/SOTIF-AVLab/test01/tree/main/Highway_Vis_tool)
+
+For monitoring program and visualization of intersection see [Intersection_Vis_tool](https://github.com/SOTIF-AVLab/test01/tree/main/Intersection_Vis_tool)
+
+### Step 2.Set monitoring object
+#### 2.1 Highway_Vis_tool
+Main program is Highway_Vis_tool/bin/startVisualization.m. Before running it, set the "videoString" and "selectid". This selectid will be set ego vehicle.
+
+#### 2.2 Intersection_Vis_tool
