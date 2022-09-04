@@ -31,3 +31,14 @@ For monitoring program and visualization of intersection see [Intersection_Vis_t
 Main program is Highway_Vis_tool/bin/startVisualization.m. Before running it, set the "videoString" and "selectid". This selectid will be set ego vehicle.
 
 #### 2.2 Intersection_Vis_tool
+Operation instructions of intersection visual monitoring program...
+
+## Acknowledgements
+描述一下高速的可视化程序是基于HighD数据集的可视化程序；给个HighD数据集的github链接；十字路口的可视化程序是基于SinD数据集的可视化程序，连接到SinD数据集的github链接。
+
+## Organization
+<img src="doc/logo.png" width = 350>
+
+- School of Vehicle and Mobility, Tsinghua University
+- Tsinghua Intelligent Vehicle Design and Safety Research Institute
+- Safety Of The Intended Functionality（SOTIF） Research Team
