@@ -37,7 +37,7 @@ Operation instructions of intersection visual monitoring program...
 描述一下高速的可视化程序是基于HighD数据集的可视化程序；给个HighD数据集的github链接；十字路口的可视化程序是基于SinD数据集的可视化程序，连接到SinD数据集的github链接。
 
 ## Organization
-<img src="doc/logo.png" width = 350>
+<img src="Doc/logo.png" width = 350>
 
 - School of Vehicle and Mobility, Tsinghua University
 - Tsinghua Intelligent Vehicle Design and Safety Research Institute
