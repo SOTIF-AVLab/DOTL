@@ -13,5 +13,5 @@ Safety is the primary issue facing the commercialization of autonomous vehicles,
 3) Based on the Chinese data set, the impact field of vehicle behavior with Chinese characteristics is explored, the compliance judgment threshold selection strategy is given, and the rationality and consistency of compliance monitoring and decision-making are verified.
 
 <div align=center>
-<img src="Doc/cleck image.png" width = 800>
+<img src="Doc/click image.png" width = 800>
 </div> 
