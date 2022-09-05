@@ -19,7 +19,7 @@ Safety is the primary issue facing the commercialization of autonomous vehicles,
 ## Demo and instructions
 We provide the monitoring program code of highway and intersection related rules written in MATLAB. At the same time, we also provide a visualization program of the relevant data set, so that the compliance monitoring results of vehicles in the data set can be replayed.
 
-A demo video of the monitoring visualization of highway dataset can be viewed [here](https://youtu.be/s39px3G_MT8).
+A demo video of the monitoring visualization of highway dataset can be viewed on [Youtube](https://youtu.be/s39px3G_MT8) or [BiliBili](https://www.bilibili.com/video/BV1JV4y1u7AW/?vd_source=682b18deece45270539ce306454dc47f).
 
 ### Step 1.Download source code
 For monitoring program and visualization of highway see [Highway_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Highway_Vis_tool).
