@@ -28,7 +28,7 @@ For monitoring program and visualization of intersection see [Intersection_Vis_t
 
 ### Step 2.Set monitoring object
 #### 2.1 Highway_Vis_tool
-Main program is Highway_Vis_tool/bin/startVisualization.m. Before running it, set the "videoString" and "selectid". This selectid will be set ego vehicle.
+Main program is Highway_Vis_tool/startVisualization.m. Before running it, set the "videoString" and "selectid". This selectid will be set ego vehicle.
 
 #### 2.2 Intersection_Vis_tool
 Operation instructions of intersection visual monitoring program...
