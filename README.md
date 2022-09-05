@@ -21,6 +21,10 @@ We provide the monitoring program code of highway and intersection related rules
 
 A demo video of the monitoring visualization of highway dataset can be viewed on [Youtube](https://youtu.be/s39px3G_MT8) or [BiliBili](https://www.bilibili.com/video/BV1JV4y1u7AW/?vd_source=682b18deece45270539ce306454dc47f).
 
+<div align=center>
+<img src="Doc/video.jpg" width = 600>
+</div> 
+
 ### Step 1.Download source code
 For monitoring program and visualization of highway see [Highway_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Highway_Vis_tool).
 
