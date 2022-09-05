@@ -24,6 +24,12 @@ A demo video of the monitoring visualization of highway dataset can be viewed [h
 ### Step 1.Download source code
 For monitoring program and visualization of highway see [Highway_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Highway_Vis_tool).
 
+For monitoring program and visualization of intersection see [Intersection_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Intersection_Vis_tool).
+
+### Step 2.Set monitoring object
+#### 2.1 Highway_Vis_tool
+Main program is Highway_Vis_tool/startVisualization.m. Before running it, set the "videoString" and "selectid". This selectid will be set as ego vehicle.
+
 ```
  |- startVisualization.m
  |- data
@@ -45,13 +51,6 @@ For monitoring program and visualization of highway see [Highway_Vis_tool](https
     |- trackVisualization.m
  |- initialize.m
 ```
-
-For monitoring program and visualization of intersection see [Intersection_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Intersection_Vis_tool).
-
-### Step 2.Set monitoring object
-#### 2.1 Highway_Vis_tool
-Main program is Highway_Vis_tool/startVisualization.m. Before running it, set the "videoString" and "selectid". This selectid will be set as ego vehicle.
-
 #### 2.2 Intersection_Vis_tool
 Operation instructions of intersection visual monitoring program...
 
