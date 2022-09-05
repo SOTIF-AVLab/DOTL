@@ -34,12 +34,12 @@ Main program is Highway_Vis_tool/startVisualization.m. Before running it, set th
  |- startVisualization.m
  |- data
  |- DJ_monitor
-     |- simulate.m
-     |- rule_DJ.slx
-     |- DataTransUnique.m
-     |- laneget.m
-     |- EgoBUS.mat
-     |- TgtBUS.mat
+    |- simulate.m
+    |- rule_DJ.slx
+    |- DataTransUnique.m
+    |- laneget.m
+    |- EgoBUS.mat
+    |- TgtBUS.mat
  |- utils
     |- plotHighway.m
     |- plotTracksO.m
