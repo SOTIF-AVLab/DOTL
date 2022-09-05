@@ -57,7 +57,7 @@ Operation instructions of intersection visual monitoring program...
 ## Acknowledgements
 Our highway visualization code is built upon the public code of visualization program of [HighD-dataset](https://github.com/RobertKrajewski/highD-dataset). The dataset we use is derived from DJI's open-source dataset——AD4CHE([Aerial Dataset for China Congested Highway and Expressway](https://auto.dji.com/cn/ad4che-dataset)).
 
-The dataset we use is [SinD-dataset](https://github.com/SOTIF-AVLab/SinD).At the same time, our intersection visualization code is built upon the public code of visualization program of SinD-dataset.
+For intersection, the dataset we use is [SinD-dataset](https://github.com/SOTIF-AVLab/SinD).Our intersection visualization code is built upon the public code of visualization program of SinD-dataset.
 
 ## Organization
 <img src="Doc/logo.png" width = 350>
