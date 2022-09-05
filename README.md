@@ -34,7 +34,9 @@ Main program is Highway_Vis_tool/startVisualization.m. Before running it, set th
 Operation instructions of intersection visual monitoring program...
 
 ## Acknowledgements
-描述一下高速的可视化程序是基于HighD数据集的可视化程序；给个HighD数据集的github链接；十字路口的可视化程序是基于SinD数据集的可视化程序，连接到SinD数据集的github链接。
+Our  highway visualization code is built upon the public code of visualization program of [HighD dataset](https://www.highd-dataset.com/). The dataset we use is derived from DJI's open-source dataset——[Aerial Dataset for China Congested Highway and Expressway(AD4CHE)](https://auto.dji.com/cn/ad4che-dataset).
+
+Our  intersection visualization code....
 
 ## Organization
 <img src="Doc/logo.png" width = 350>
