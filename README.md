@@ -24,6 +24,28 @@ A demo video of the monitoring visualization of highway dataset can be viewed [h
 ### Step 1.Download source code
 For monitoring program and visualization of highway see [Highway_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Highway_Vis_tool).
 
+```
+ |- startVisualization.m
+ |- data
+ |- DJ_monitor
+     |- simulate.m
+     |- rule_DJ.slx
+     |- DataTransUnique.m
+     |- laneget.m
+     |- EgoBUS.mat
+     |- TgtBUS.mat
+ |- utils
+    |- plotHighway.m
+    |- plotTracksO.m
+    |- plotTracksOnImage.m
+    |- readInTracksCsv.m
+    |- readInVideoCsv.m
+ |- visualization
+    |- trackVisualization.fig
+    |- trackVisualization.m
+ |- initialize.m
+```
+
 For monitoring program and visualization of intersection see [Intersection_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Intersection_Vis_tool).
 
 ### Step 2.Set monitoring object
