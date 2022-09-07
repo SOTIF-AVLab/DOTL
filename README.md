@@ -56,7 +56,7 @@ Main program is Highway_Vis_tool/startVisualization.m. Before running it, set th
  |- initialize.m
 ```
 #### 2.2 Intersection_Vis_tool
-Operation instructions of intersection visual monitoring program...
+Main program is Intersection_Vis_tool/VIsMain.py. When running the file, user needs to input the Ego id. This id will be set as ego vehicle. 
 
 ## Acknowledgements
 Our highway visualization code is built upon the public code of visualization program of [HighD-dataset](https://github.com/RobertKrajewski/highD-dataset). The dataset we use is derived from DJI's open-source dataset——AD4CHE(Aerial Dataset for China Congested Highway and Expressway).
