@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Button, Slider
 from utils.DataReader import read_tracks_all, read_tracks_meta, read_light
+import pandas as pd
 
 try:
     import lanelet2
@@ -28,9 +29,12 @@ class Visualizer(object):
 
         self.config = dict(config)
         self.ego_id = ego_id
+        self.startViolationPlot = False
         self.__read_data()
         self.__para_init()
         self.__interface_init()
+        self.violation_frame_id = []
+        self.current_violation_event = 0
 
     def __read_data(self):
 
@@ -58,7 +62,7 @@ class Visualizer(object):
         #                'truck': 'yellow', 'tricycle'
         #                : 'hotpink', 'pedestrain': 'red'}
         self.colors = {'ego':(130/255, 178/255, 154/255), 'tgt':(242/255, 204/255, 142/255)}
-        self.violationcolors = {'legal':'green', 'violation':'red'}
+        self.violationcolors = {'legal':(101/255, 1, 100/255), 'violation':(158/255, 90/255, 60/255)}
         # Save ids for each frame
         self.ids_for_frame = {}
         for i_frame in range(self.maximum_frames):  # 清点每一帧各有哪些TP
@@ -110,8 +114,9 @@ class Visualizer(object):
 
         self.centroid_style = dict(fill=True, edgecolor="black", lw=0.15, alpha=1,
                                    radius=0.2, zorder=30)
-        self.track_style = dict(linewidth=1, zorder=10)
-        self.track_style_future = dict(color="none", linewidth=1, alpha=0.7, zorder=10)
+        self.track_style = dict(linewidth=3, zorder=10)
+        self.track_style_future = dict(color="linen", linewidth=1, alpha=0.7, zorder=10)
+        self.violation_track_style = dict(linewidth=3, zorder = 20)
 
         # Define the callbacks for the widgets' actions
         self.frame_slider = FrameControlSlider(self.ax_slider, 'Frame', 0, self.maximum_frames - 1,
@@ -139,7 +144,8 @@ class Visualizer(object):
 
         # Define the callbacks for the widgets' actions
         self.fig.canvas.mpl_connect('key_press_event', self.update_keypress)
-
+        
+        
         self.ax.set_autoscale_on(True)
         self.update_figure()
 
@@ -448,84 +454,154 @@ class Visualizer(object):
         self.timer.stop()
 
     def update_figure(self):
-
         self.title.set_text(
             "Frame(s) = \n{} / {} ({:.2f}/{:.2f})".format(self.current_frame, self.maximum_frames,
                                                            self.current_frame * self.delta_time,
                                                            self.maximum_frames * self.delta_time))
-
+        violation_flag = 'legal'
+        previous_violation_flag = violation_flag
+        path = 'Data/8_02_1/8_2_1_' + str(self.ego_id) + '.csv'
+        violation_type = pd.read_csv(path).values.tolist()
+        violation_info = []
+        for i in violation_type:
+            violation_info.append(sum(i))
+        self.violation_frame_id = []
+        for i in range (1, len(violation_info)):
+            if violation_info[i] != 0 and violation_info[i-1] == 0:
+                self.violation_frame_id.append(i)
         for track_id in self.ids_for_frame[self.current_frame]["veh"]:
-            violation_flag = 'legal'
+            
             ego_flag = 'ego' if self.ego_id == track_id else 'tgt'
-            violation_color = 'none' if ego_flag == 'tgt' else self.violationcolors[violation_flag]
             # object is visible
             frame_id = self.current_frame - self.veh_tracks_meta[track_id]['initialFrame']
+            if ego_flag == 'ego':
+                violation_flag = 'legal' if violation_info[frame_id] == 0 else 'violation'
+                violation_color = 'none' if ego_flag == 'tgt' else self.violationcolors[violation_flag]
+            else:
+                violation_flag = 'legal'
+                violation_color = 'none'
             value = self.VehTracks[track_id]
             bbox = value['bbox'][frame_id, :, :]
             tri = value['triangle'][frame_id, :, :]
+            
+
+            
+            if frame_id == 0 and track_id == self.ego_id:
+                previous_violation_flag = 'legal'
+            elif frame_id != 0 and track_id == self.ego_id:
+                previous_violation_flag = 'violation' if violation_info[frame_id-1] != 0 else 'legal'
+            if ego_flag == 'ego':
+                plt.close
+                # Define the Info Board
+                speed = np.sqrt((value["vx"][frame_id]*3.6) ** 2 + (value["vy"][frame_id] * 3.6) ** 2)
+                virtual_lane_violation = 'violation' if violation_type[frame_id][7] + violation_type[frame_id][8] + violation_type[frame_id][9] > 0 else 'legal'
+                stopline_violation = 'violation' if violation_type[frame_id][6] > 0 else 'legal'
+                impede_ped_violation = 'violation' if violation_type[frame_id][10] > 0 else 'legal'
+                right_of_way_violation = 'violation' if sum(violation_type[frame_id][0:6]) > 0 else 'legal' 
+                info = "Ego_vehicle: {} \nVehicle_type: {} \nVelocity: {:.2f}km/h \nVirtual Lane Violation: {} \nRight of Way Violation: {} \nStop Line Violation: {} \nImpede Pedestrian Violation: {}" .format(self.ego_id, value["agent_type"], 
+                                                                                                                                                                                                                 speed, virtual_lane_violation, right_of_way_violation,
+                                                                                                                                                                                                                 stopline_violation, impede_ped_violation)
+                self.infoBoard = plt.text(0.1, 0.85, info, size = 20, 
+                                 bbox=dict(boxstyle="square", 
+                                           ec = (0, 0, 0),
+                                           fc = (1., 1., 1.)), 
+                                           verticalalignment = 'center', 
+                                           horizontalalignment = 'left', 
+                                           transform = self.ax.transAxes)
             if track_id not in self.plot_objs['veh']:
-                color = self.colors[ego_flag]
-
-                # rect = Num_Polygon(bbox, closed=True,
-                #                    zorder=20, facecolor=color, picker=True, track_id=track_id,
-                #                    fill=True, edgecolor="k", alpha=0.8)
-                rect = NumPolygon(bbox, closed=True,
-                                   zorder=20, color=color, picker=True, track_id=track_id,
-                                   fill=True, alpha=0.6)
-                triangle_style = dict(facecolor="k", fill=True, edgecolor="k", lw=0.1, alpha=0.6, zorder=21)
-
-                triangle = plt.Polygon(tri, True, **triangle_style)
-                self.ax.add_patch(rect)
-                self.ax.add_patch(triangle)
-
-                if self.config['behaviour_type']:
-                    if 'yellow-light running' in self.veh_tracks_meta[track_id]['Signal_Violation_Behavior']:
-                        text_color = 'yellow'
-                    elif 'red-light running' in self.veh_tracks_meta[track_id]['Signal_Violation_Behavior']:
-                        text_color = 'red'
+                if track_id not in self.plot_objs['veh']:
+                    color = self.colors[ego_flag]
+    
+                    # rect = Num_Polygon(bbox, closed=True,
+                    #                    zorder=20, facecolor=color, picker=True, track_id=track_id,
+                    #                    fill=True, edgecolor="k", alpha=0.8)
+                    rect = NumPolygon(bbox, closed=True,
+                                       zorder=20, color=color, picker=True, track_id=track_id,
+                                       fill=True, alpha=0.6)
+                    triangle_style = dict(facecolor="k", fill=True, edgecolor="k", lw=0.1, alpha=0.6, zorder=21)
+    
+                    triangle = plt.Polygon(tri, True, **triangle_style)
+                    self.ax.add_patch(rect)
+                    self.ax.add_patch(triangle)
+    
+                    if self.config['behaviour_type']:
+                        if 'yellow-light running' in self.veh_tracks_meta[track_id]['Signal_Violation_Behavior']:
+                            text_color = 'yellow'
+                        elif 'red-light running' in self.veh_tracks_meta[track_id]['Signal_Violation_Behavior']:
+                            text_color = 'red'
+                        else:
+                            text_color = 'black'
                     else:
                         text_color = 'black'
-                else:
-                    text_color = 'black'
+    
+                    show_text = str(track_id)
+                    text = self.ax.text(value['x'][frame_id], value['y'][frame_id] + 1.5, show_text,
+                                        horizontalalignment='center', zorder=30, color=text_color)
+    
+                    self.plot_objs["veh"][track_id] = {"rect": rect, "tri": triangle, "text": text}
+                    
+                  
+         
+                    if self.config["plotTrackingLines"]:
+    
+                        plotted_centroid = plt.Circle((value['x'][frame_id],
+                                                        value['y'][frame_id]),
+                                                      facecolor=color,
+                                                      **self.centroid_style)
+        
+                        self.ax.add_patch(plotted_centroid)
+                        self.plot_objs["veh"][track_id]['point'] = plotted_centroid
+        
+                        if value["center"].shape[0] > 0:
+                            # Calculate the centroid of the vehicles by using the bounding box information
+                            # Check track direction
+                            plotted_centroids = self.ax.plot(
+                                value["center"][0:frame_id + 1][:, 0],
+                                value["center"][0:frame_id + 1][:, 1],
+                                color=violation_color, **self.track_style)[0]  # plot return a Handle
+            
+                            self.plot_objs['veh'][track_id]['past_tracking_line'] = plotted_centroids
+                            if self.config["plotFutureTrackingLines"]:
+                                # Check track direction
+                                plotted_centroids_future = self.ax.plot(
+                                    value["center"][frame_id:][:, 0],
+                                    value["center"][frame_id:][:, 1],
+                                    **self.track_style_future)[0]
+                                self.plot_objs["veh"][track_id]['future_tracking_line'] = plotted_centroids_future
+                    if self.config["plotViolationTrackingLines"] and self.ego_id == track_id:
 
-                show_text = str(track_id)
-                text = self.ax.text(value['x'][frame_id], value['y'][frame_id] + 1.5, show_text,
-                                    horizontalalignment='center', zorder=30, color=text_color)
-
-                self.plot_objs["veh"][track_id] = {"rect": rect, "tri": triangle, "text": text}
-
-                if self.config["plotTrackingLines"]:
-
-                    plotted_centroid = plt.Circle((value['x'][frame_id],
-                                                   value['y'][frame_id]),
-                                                  facecolor=color,
-                                                  **self.centroid_style)
-
-                    self.ax.add_patch(plotted_centroid)
-                    self.plot_objs["veh"][track_id]['point'] = plotted_centroid
-
-                    if value["center"].shape[0] > 0:
-                        # Calculate the centroid of the vehicles by using the bounding box information
-                        # Check track direction
+                        plotted_centroid = plt.Circle((value['x'][frame_id],
+                                                        value['y'][frame_id]),
+                                                      facecolor=color,
+                                                      **self.centroid_style)
+        
+                        self.ax.add_patch(plotted_centroid)
+                        self.plot_objs["veh"][track_id]['point'] = plotted_centroid
+        
                         plotted_centroids = self.ax.plot(
                             value["center"][0:frame_id + 1][:, 0],
                             value["center"][0:frame_id + 1][:, 1],
-                            color=violation_color, **self.track_style)[0]  # plot return a Handle
-
-                        self.plot_objs['veh'][track_id]['past_tracking_line'] = plotted_centroids
-                        if self.config["plotFutureTrackingLines"]:
-                            # Check track direction
-                            plotted_centroids_future = self.ax.plot(
-                                value["center"][frame_id:][:, 0],
-                                value["center"][frame_id:][:, 1],
-                                **self.track_style_future)[0]
-                            self.plot_objs["veh"][track_id]['future_tracking_line'] = plotted_centroids_future
+                            color='red', **self.violation_track_style)[0]  # plot return a Handle
+        
+                        self.plot_objs['veh'][track_id]['violation_tracking_line'] = plotted_centroids
 
             else:
+                
                 self.plot_objs["veh"][track_id]["rect"].set_xy(bbox)
                 self.plot_objs["veh"][track_id]["tri"].set_xy(tri)
                 self.plot_objs["veh"][track_id]["text"].set_position((value['x'][frame_id], value['y'][frame_id] + 1.5))
 
+                if previous_violation_flag != violation_flag and self.ego_id == track_id and violation_flag == 'violation':
+                    self.startViolationPlot = True
+                elif previous_violation_flag != violation_flag and self.ego_id == track_id and violation_flag == 'legal':
+                    self.startViolationPlot = False
+                    self.current_violation_event += 1                    
+                if self.config["plotViolationTrackingLines"] and self.startViolationPlot and self.ego_id == track_id:
+                    self.plot_objs["veh"][track_id]['violation_tracking_line'].set_data(
+                        value["center"][self.violation_frame_id[self.current_violation_event]:frame_id + 1][:, 0],
+                        value["center"][self.violation_frame_id[self.current_violation_event]:frame_id + 1][:, 1])
+                    self.plot_objs["veh"][track_id]['point'].set_center((value['x'][frame_id], value['y'][frame_id]))
+                     
                 if self.config["plotTrackingLines"]:
                     self.plot_objs["veh"][track_id]['past_tracking_line'].set_data(
                         value["center"][0:frame_id + 1][:, 0],
@@ -535,7 +611,8 @@ class Visualizer(object):
                         self.plot_objs["veh"][track_id]['future_tracking_line'].set_data(
                             value["center"][frame_id:][:, 0],
                             value["center"][frame_id:][:, 1])
-
+               
+        
         for track_id in self.ids_for_frame[self.current_frame]["ped"]:
 
             frame_id = self.current_frame - self.ped_tracks_meta[track_id]['initialFrame']
@@ -579,7 +656,9 @@ class Visualizer(object):
                         self.plot_objs["ped"][track_id]['future_tracking_line'].set_data(
                             value["center"][frame_id:][:, 0],
                             value["center"][frame_id:][:, 1])
-
+        # if self.config['infoBoard']:
+            
+            
         if self.config['plot_traffic_light']:
             cur_state = self.light_state[self.current_frame * 3]
 

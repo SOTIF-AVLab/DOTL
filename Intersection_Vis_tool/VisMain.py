@@ -23,9 +23,15 @@ def args_parser():
     configs.add_argument('--plotTrackingLines', default=True,
                                       help="Optional: decide whether to plot the direction lane intersection points or not.",
                                       type=bool)
-    configs.add_argument('--plotFutureTrackingLines', default=True,
+    configs.add_argument('--plotFutureTrackingLines', default=False,
                                       help="Optional: decide whether to plot the tracking lines or not.",
                                       type=bool)
+    configs.add_argument('--plotViolationTrackingLines', default=True,
+                         help="Optional: decide whether to plot the violation tracking lines or not.",
+                         type=bool)
+    configs.add_argument('--infoBoard', default=True, 
+                         help="Optional: decide whether to show the information board or not.", 
+                         type=bool)
     
     configs = vars(configs.parse_args())
 
