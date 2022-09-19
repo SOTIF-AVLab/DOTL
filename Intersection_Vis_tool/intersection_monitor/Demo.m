@@ -1,10 +1,10 @@
 clear
 
-Filename="D:\OneDrive - Imperial College London\Imperial college london-Kevi023XPS\Year_Three\TsinghuaUniverisitySelfDriving\法规数字化\intersection\dataset\8_2_1\Veh_smoothed_tracks.csv";
+Filename="..\Data\8_02_1\Veh_smoothed_tracks.csv";
 filename=char(Filename);
-recordingfile=[filename(1:end-23) 'recoding_metas.csv']; % 记录信息文件地址
+recordingfile=[filename(1:end-23) 'recording_metas.csv']; % 记录信息文件地址
 recording=readtable(recordingfile);   %读取记录信息
-pedestrainfile = char("D:\OneDrive - Imperial College London\Imperial college london-Kevi023XPS\Year_Three\TsinghuaUniverisitySelfDriving\法规数字化\intersection\dataset\8_2_1\Ped_smoothed_tracks.csv");
+pedestrainfile = char("..\Data\8_02_1\Ped_smoothed_tracks.csv");
 Peddata = readtable(pedestrainfile);  % 读取行人数据集
 lightfile = [filename(1:end-23) 'TrafficLight_8_02_1.csv']; % 记录红绿灯信息文件地址
 lightinfo = readtable(lightfile);
