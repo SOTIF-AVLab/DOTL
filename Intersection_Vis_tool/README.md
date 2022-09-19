@@ -1,7 +1,7 @@
 # Intersection Vis Tool
 
 
-We provide a python program to import and visualize the sind data set to make it easy to observe!  
+We provide a Matlab program to monitor the violation status of traffic participants and a Python program to visualize the monitoring results. 
 
 ## Python package Installation
 The package required for the program to run is shown in the `requirements.txt` file, and you can install them by：`pip3 install -r requirements.txt`  
