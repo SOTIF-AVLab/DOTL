@@ -18,6 +18,12 @@ In addition to this, we recommend installing the [lanelet2](https://github.com/f
   * run `./VisMain.py <data_path (default= ../Data)> <record_name (default= 8_02_1)>` from this folder directory to visualize the recorded data. 
 
 ## Module Description
+### `Demo.m`
+This module allows user to select the id and type ("car", "motorcycle") of ego vehicle. Afterward, user could run this file to get the violation status of the ego vehicle. 
+
+### `rule_intersection.slx`
+This module is the main violation monitoring program built in Simulink. Users could examine the selected traffic participants' violation status, including stop-line, right-of-way, virtual-lane following, etc. 
+
 ### `DataReader.py`
 This module allows to read either the tracks, static track info, traffic light states and recording meta info by respective function, and by calling `read_tracks_all(path)` to read a total recording info. 
 
