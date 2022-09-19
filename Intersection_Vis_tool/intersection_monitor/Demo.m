@@ -2,7 +2,7 @@ clear
 
 Filename="..\Data\8_02_1\Veh_smoothed_tracks.csv";
 filename=char(Filename);
-recordingfile=[filename(1:end-23) 'recording_metas.csv']; % 记录信息文件地址
+recordingfile=[filename(1:end-23) 'recoding_metas.csv']; % 记录信息文件地址
 recording=readtable(recordingfile);   %读取记录信息
 pedestrainfile = char("..\Data\8_02_1\Ped_smoothed_tracks.csv");
 Peddata = readtable(pedestrainfile);  % 读取行人数据集
