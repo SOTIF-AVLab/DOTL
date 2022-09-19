@@ -21,6 +21,8 @@ We provide the monitoring program code of highway and intersection related rules
 
 A demo video of the monitoring visualization of highway dataset can be viewed on [Youtube](https://youtu.be/s39px3G_MT8) or [BiliBili](https://www.bilibili.com/video/BV1JV4y1u7AW/?vd_source=682b18deece45270539ce306454dc47f).
 
+A demo video of the monitoring visualization of intersection dataset can be viewed on [Youtube](https://youtu.be/s39px3G_MT8) or [BiliBili](https://www.bilibili.com/video/BV1GG41137E6/?vd_source=682b18deece45270539ce306454dc47f).
+
 <div align=center>
 <img src="Doc/video.jpg" width = 600>
 </div> 
