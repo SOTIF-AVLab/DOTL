@@ -62,12 +62,16 @@ Main program is Intersection_Vis_tool/VIsMain.py. When running the file, user ne
 ```
  |- Data
  |- doc
+ |- intersection_monitor
+    |- rule_intersection.slx
+    |- Demo.m
  |- utils
     |- _init_.py
     |- DataReader.py
     |- dict_utils.py
-    |- map_vis_lanelet2
-    |- map_vis_without_lanelet
+    |- map_vis_lanelet2.py
+    |- map_vis_without_lanelet.py
+    |- Mat2CSV.m
  |- intersection_visualizer.py
  |- VisMain.py
  |- format.md
