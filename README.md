@@ -28,7 +28,7 @@ A demo video of the monitoring visualization of intersection dataset can be view
 </div> 
 
 <div align=center>
-<img src="Doc/video_intersection.jpg" width = 600>
+<img src="Doc/Video_intersection.jpg" width = 600>
 </div> 
 
 ### Step 1.Download source code
