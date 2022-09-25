@@ -3,7 +3,7 @@
 Safety is the primary issue facing the commercialization of autonomous vehicles,traffic laws are a powerful means of ensuring vehicle safety and important evidence for the traceability of accidents. However, the ambiguity of language laws for human drivers and the complexity of dynamic and static multi-constraint coupling scenarios bring severe challenges to compliance research and are the key problems hindering the safe development of autonomous driving. This research intends to start with the research on the systematic digitalization of traffic laws, explore the influence filed of vehicle behaviors, select the reasonable compliance judgment thresholds, and then research the real-time compliance monitoring methods.
 
 <div align=center>
-<img src="Doc/architecture.png" width = 800>
+<img src="Doc/architecture.jpg" width = 800>
 </div> 
 
 ## Relevant research contents
@@ -13,7 +13,7 @@ Safety is the primary issue facing the commercialization of autonomous vehicles,
 3) Based on the Chinese data set, the impact field of vehicle behavior with Chinese characteristics is explored, the compliance judgment threshold selection strategy is given, and the rationality and consistency of compliance monitoring and decision-making are verified.
 
 <div align=center>
-<img src="Doc/click image.png" width = 800>
+<img src="Doc/click image.jpg" width = 800>
 </div> 
 
 ## Demo and instructions
