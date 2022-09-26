@@ -39,5 +39,5 @@ selectID = 15150;
 Then, run the `startVisualization.m`, and you can get the visual interface.
 
 <div align=center>
-<img src="DOTL/Doc/video.jpg" width = 600>
+<img src="https://github.com/SOTIF-AVLab/DOTL/blob/main/Doc/video.jpg" width = 600>
 </div> 
