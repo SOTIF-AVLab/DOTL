@@ -28,3 +28,12 @@ The structure of Highway_Vis_tool is as follows. Main program is startVisualizat
 
 ## Operating Instruction
 Ensure that all files and folders are located in the working path. Before running it, open the startVisualization.m, set the "videoString" and "selectid".
+
+```
+% Name of the video, for example, DJI_0044 is "44";
+videoString = "44";
+%Select the ID of vehicle. You can consult the xx_track.csv file to find the vehicle ID contained in the dataset.
+selectID = 15150; 
+```
+
+Then, run the startVisualization.m, and you can get the visual interface.
