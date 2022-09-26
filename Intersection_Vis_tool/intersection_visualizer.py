@@ -43,7 +43,6 @@ class Visualizer(object):
         self.veh_tracks_meta = read_tracks_meta(os.path.join(datapath, 'Veh_tracks_meta.csv'))
         self.ped_tracks_meta = read_tracks_meta(os.path.join(datapath, 'Ped_tracks_meta.csv'))
 
-
         self.maximum_frames = np.max([track["finalFrame"] for track in self.veh_tracks_meta.values()])
         self.maximum_frames = max(np.max([track["finalFrame"] for track in self.ped_tracks_meta.values()]),
                                   self.maximum_frames)
@@ -614,7 +613,7 @@ class Visualizer(object):
                
         
         for track_id in self.ids_for_frame[self.current_frame]["ped"]:
-
+            
             frame_id = self.current_frame - self.ped_tracks_meta[track_id]['initialFrame']
             value = self.PedTracks[track_id]
             bbox = value['bbox'][frame_id, :, :]
@@ -656,7 +655,7 @@ class Visualizer(object):
                         self.plot_objs["ped"][track_id]['future_tracking_line'].set_data(
                             value["center"][frame_id:][:, 0],
                             value["center"][frame_id:][:, 1])
-        # if self.config['infoBoard']:
+
             
             
         if self.config['plot_traffic_light']:
