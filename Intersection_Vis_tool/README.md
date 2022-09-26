@@ -51,7 +51,9 @@ The script has many different parameters, which are listed and explained in the 
 important parameter is the `recording_name`, which specifies the recording to be loaded. 
 
 <div align=center>
-<img src="https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Intersection_Vis_tool/doc/Visualization.jpg" width =200>
-<img src="https://github.com/SOTIF-AVLab/SinD/blob/main/doc/motion-parameters.jpg" width = 800>  
-</div>  
+<img src="https://github.com/SOTIF-AVLab/DOTL/blob/main/Intersection_Vis_tool/doc/Visualization.jpg" width =800>
+</div>
 
+<div align=center>
+<img src="https://github.com/SOTIF-AVLab/SinD/blob/main/doc/motion-parameters.jpg" width = 800>  
+</div>
