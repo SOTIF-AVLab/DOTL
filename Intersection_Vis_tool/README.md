@@ -1,7 +1,5 @@
 # Intersection Vis Tool
-
-
-We provide a Matlab program to monitor the violation status of traffic participants and a Python program to visualize the monitoring results. 
+We provide a Matlab program to monitor the violation status of vehicle in intersection, and a Python program to visualize the monitoring results. These programs are written based on the format definition of SinD dataset. You can select one of the dataset, and choose an ID in this dataset as ego vehicle. Then, the visual program will reproduce relevant scenes and display the monitoring results in real time.
 
 ## Python package Installation
 The package required for the program to run is shown in the `requirements.txt` file, and you can install them by：`pip3 install -r requirements.txt`  
