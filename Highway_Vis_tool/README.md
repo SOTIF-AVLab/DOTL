@@ -36,7 +36,7 @@ videoString = "44";
 selectID = 15150; 
 ```
 
-Then, run the `startVisualization.m`, and you can get the visual interface.
+Then, run the `startVisualization.m`, and you can get the visual interface. Click the `play` button to play, there are also `stop`, `next` and other buttons. You can also drag the `progress bar` to adjust the progress. 
 
 <div align=center>
 <img src="https://github.com/SOTIF-AVLab/DOTL/blob/main/Doc/video.jpg" width = 600>
