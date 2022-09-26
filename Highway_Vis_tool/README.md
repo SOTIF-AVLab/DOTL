@@ -37,3 +37,7 @@ selectID = 15150;
 ```
 
 Then, run the `startVisualization.m`, and you can get the visual interface.
+
+<div align=center>
+<img src="Doc/video.jpg" width = 600>
+</div> 
