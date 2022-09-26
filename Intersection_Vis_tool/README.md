@@ -30,7 +30,7 @@ The package required for the program to run is shown in the `requirements.txt` f
 This Track Visualizer is tested with Python 3.6 and 3.8 but is very probably compatible with newer or slightly older releases.  
 In addition to this, we recommend installing the [lanelet2](https://github.com/fzi-forschungszentrum-informatik/Lanelet2) module, which provides a convenient HD map API, and allows better visualization and ease of use of map information.  
 
-## Usage
+### Usage
 * copy/download the SIND dataset into the right place
   * copy/download the track files into the folder `data`, keep one folder per record, as in your download
   * your folder structure should look like in [File-Directory.md](https://github.com/SOTIF-AVLab/SinD/blob/main/doc/File-Directory.md)
