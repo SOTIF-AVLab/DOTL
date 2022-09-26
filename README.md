@@ -17,7 +17,7 @@ Safety is the primary issue facing the commercialization of autonomous vehicles,
 </div> 
 
 ## Demo and instructions
-We provide the monitoring program code of highway and intersection related rules written in MATLAB. At the same time, we also provide a visualization program of the relevant data set, so that the compliance monitoring results of vehicles in the data set can be replayed.
+We provide the monitoring program code of highway and intersection related rules written in MATLAB. At the same time, we also provide a visualization program of the relevant data set, so that the compliance monitoring results of vehicles in the data set can be replayed. Please see the [Highway_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Highway_Vis_tool) or [Intersection_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Intersection_Vis_tool) to get more detailed information about them.
 
 A demo video of the monitoring visualization of highway dataset can be viewed on [Youtube](https://youtu.be/s39px3G_MT8) or [BiliBili](https://www.bilibili.com/video/BV1JV4y1u7AW/?vd_source=682b18deece45270539ce306454dc47f).
 
@@ -31,36 +31,6 @@ A demo video of the monitoring visualization of intersection dataset can be view
 <img src="Doc/Video_intersection.jpg" width = 600>
 </div> 
 
-### Step 1.Download source code
-For monitoring program and visualization of highway see [Highway_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Highway_Vis_tool).
-
-For monitoring program and visualization of intersection see [Intersection_Vis_tool](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/Intersection_Vis_tool).
-
-### Step 2.Set monitoring object
-#### 2.1 Highway_Vis_tool
-Main program is Highway_Vis_tool/startVisualization.m. Before running it, set the "videoString" and "selectid". This selectid will be set as ego vehicle.
-
-```
- |- startVisualization.m
- |- data
- |- DJ_monitor
-    |- simulate.m
-    |- rule_DJ.slx
-    |- DataTransUnique.m
-    |- laneget.m
-    |- EgoBUS.mat
-    |- TgtBUS.mat
- |- utils
-    |- plotHighway.m
-    |- plotTracksO.m
-    |- plotTracksOnImage.m
-    |- readInTracksCsv.m
-    |- readInVideoCsv.m
- |- visualization
-    |- trackVisualization.fig
-    |- trackVisualization.m
- |- initialize.m
-```
 #### 2.2 Intersection_Vis_tool
 Main program is Intersection_Vis_tool/VIsMain.py. When running the file, user needs to input the Ego id. This id will be set as ego vehicle. 
 ```
