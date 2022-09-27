@@ -45,7 +45,11 @@ In addition to this, we recommend installing the [lanelet2](https://github.com/f
   * run `./VisMain.py <data_path (default= ../Data)> <record_name (default= 8_02_1)>` from this folder directory to visualize the recorded data. 
 
 ### `Demo.m`
-This module allows user to select the dataset, and then to select the id and type ("car", "motorcycle") of ego vehicle. Afterward, user could run this file to get the violation status of the ego vehicle. 
+This module allows user to select the dataset, and then to select the id of ego vehicle. Afterward, user could run this file to get the violation status of the ego vehicle. 
+```
+selectdataset = '8_2_1';    %选择数据集
+selectid = 20;              %选择车辆id，agent_type需为car
+```
 
 ### `DataReader.py`
 This module allows to read either the tracks, static track info, traffic light states and recording meta info by respective function, and by calling `read_tracks_all(path)` to read a total recording info. 
