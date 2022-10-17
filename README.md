@@ -8,7 +8,7 @@ Safety is the primary issue facing the commercialization of autonomous vehicles,
 
 ## Relevant research contents
 
-1) We classified and refined 25 articles related to driving in the regulations for the implementation of the road traffic safety law of the people's Republic of China, explored the semantic logic and constraint types of road regulations, defined atomic propositions, and built a multi-level trigger domain digital description model of regulations by building MTL formulas;
+1) We classified and refined [25 articles related to driving](https://github.com/SOTIF-AVLab/Digitalization-of-regulations/tree/main/article.pdf) in the regulations for the implementation of the road traffic safety law of the people's Republic of China, explored the semantic logic and constraint types of road regulations, defined atomic propositions, and built a multi-level trigger domain digital description model of regulations by building MTL formulas;
 2) Build a real-time monitoring model of vehicle compliance based on the constraints of digital road regulations;
 3) Based on the Chinese data set, the impact field of vehicle behavior with Chinese characteristics is explored, the compliance judgment threshold selection strategy is given, and the rationality and consistency of compliance monitoring and decision-making are verified.
 
