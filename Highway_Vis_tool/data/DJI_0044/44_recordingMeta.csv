@@ -1,0 +1,2 @@
+id,frameRate,locationId,speedLimit,month,weekDay,startTime,duration,totalDrivenDistance,totalDrivenTime,numVehicles,numCars,numTrucks,numBuses,laneMarkings,scale
+46,30,46,-1,2.2021,Wed,12:15,96.80,33009.35,4445.57,289,202,78,9,refer to: 46_lanePicture,1 pixel = 0.0375 m
